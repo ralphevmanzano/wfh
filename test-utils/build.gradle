@@ -1,1 +1,6 @@
 apply from: "$rootProject.projectDir/android-library.gradle"
+
+dependencies {
+    implementation Libs.kotlinCoroutinesTestJvm
+    implementation Libs.junit
+}

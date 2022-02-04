@@ -95,5 +95,6 @@ object Libs {
   const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
   const val archCoreTesting = "androidx.arch.core:core-testing:${Versions.archCoreTesting}"
   const val kotlinCoroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.kotlin}"
+  const val kotlinCoroutinesTestJvm = "org.jetbrains.kotlinx:kotlinx-coroutines-test-jvm:${Versions.kotlin}"
 }
 

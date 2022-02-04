@@ -34,13 +34,11 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-
-    sourceSets {
-        test.java.srcDirs += ["${project(':test-utils').projectDir}/src/test/java"]
-    }
 }
 
 dependencies {
+
+    testImplementation project(Modules.testUtils)
 
     implementation Libs.androidxCore
     implementation Libs.androidxAppCompat
