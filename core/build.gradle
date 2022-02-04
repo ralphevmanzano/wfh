@@ -1,0 +1,40 @@
+apply from: "$rootProject.projectDir/android-library.gradle"
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+  defaultConfig {
+    javaCompileOptions {
+      annotationProcessorOptions {
+        arguments += [
+                "room.schemaLocation":"$projectDir/schemas".toString(),
+                "room.incremental":"true",
+                "room.expandProjection":"true"
+        ]
+      }
+    }
+  }
+}
+
+dependencies {
+
+  implementation Libs.fragments
+  implementation Libs.viewModels
+
+  implementation Libs.navigation
+  implementation Libs.navigationUi
+
+  implementation Libs.hiltAndroid
+  kapt Libs.hiltAndroidCompiler
+  implementation Libs.hiltLifecycleViewModel
+  kapt Libs.hiltCompiler
+
+  implementation Libs.room
+  implementation Libs.roomKtx
+  kapt Libs.roomCompiler
+
+  implementation Libs.androidxLegacySupport
+}
+
+kapt {
+  correctErrorTypes true
+}

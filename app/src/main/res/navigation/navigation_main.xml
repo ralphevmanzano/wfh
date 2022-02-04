@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/navigation_home">
+
+    <action
+        android:id="@+id/action_home_to_details"
+        app:destination="@+id/navigation_details"
+        app:enterAnim="@anim/slide_in_from_right"
+        app:exitAnim="@anim/slide_out_to_left"
+        app:popEnterAnim="@anim/slide_in_from_left"
+        app:popExitAnim="@anim/slide_out_to_right">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </action>
+
+    <include app:graph="@navigation/navigation_home" />
+    <include app:graph="@navigation/navigation_details" />
+</navigation>
