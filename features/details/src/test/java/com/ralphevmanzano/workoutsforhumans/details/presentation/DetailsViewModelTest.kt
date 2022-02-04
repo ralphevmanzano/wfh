@@ -1,18 +1,20 @@
 package com.ralphevmanzano.workoutsforhumans.details.presentation
 
-import androidx.lifecycle.Observer
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.ralphevmanzano.workoutsforhumans.core.domain.model.Workout
 import com.ralphevmanzano.workoutsforhumans.core.domain.repository.WorkoutRepository
 import com.ralphevmanzano.workoutsforhumans.core.domain.usecase.LoadWorkoutByIdUseCase
+import com.ralphevmanzano.workoutsforhumans.test_utils.MainCoroutineScopeRule
+import com.ralphevmanzano.workoutsforhumans.test_utils.getOrAwaitValue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.test.runBlockingTest
+import org.junit.Assert.assertEquals
 import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
+import org.junit.rules.TestRule
 import org.junit.runner.RunWith
-import org.mockito.ArgumentCaptor
-import org.mockito.Captor
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.Mockito.`when`
 import org.mockito.junit.MockitoJUnitRunner
 
@@ -20,26 +22,26 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class DetailsViewModelTest {
 
+    @get:Rule
+    val testInstantTaskExecutorRule: TestRule = InstantTaskExecutorRule()
+
+    @get:Rule
+    val coroutineScope = MainCoroutineScopeRule()
+
     @Mock
     private lateinit var repository: WorkoutRepository
 
-    @Mock
-    private lateinit var observer: Observer<Workout>
-
-    @Captor
-    private lateinit var captor: ArgumentCaptor<Workout>
-
-    private lateinit var viewModel: DetailsViewModel
+    private lateinit var loadWorkoutByIdUseCase: LoadWorkoutByIdUseCase
 
     @ExperimentalCoroutinesApi
     @Before
     fun setup() {
-        viewModel = DetailsViewModel(LoadWorkoutByIdUseCase(repository))
+        loadWorkoutByIdUseCase = LoadWorkoutByIdUseCase(repository)
     }
 
     @Test
-    fun `when getWorkoutsById should update livedata`() {
-        runTest {
+    fun `when getWorkoutById should update livedata`() {
+        coroutineScope.runBlockingTest {
             // Given
             val id = 0
             val workout = Workout(
@@ -52,13 +54,22 @@ class DetailsViewModelTest {
                 "chest",
                 "triceps"
             )
-            `when`(repository.getWorkoutById(id)).thenReturn(workout)
+            `when`(loadWorkoutByIdUseCase.invoke(id)).thenReturn(workout)
 
             // When
+            val viewModel = DetailsViewModel(loadWorkoutByIdUseCase)
             viewModel.getWorkout(id)
 
             // Then
-            
+            val result = viewModel.workout.getOrAwaitValue()
+            assertEquals(0, result.id)
+            assertEquals("Push up", result.title)
+            assertEquals("Push up", result.name)
+            assertEquals("img_push_up", result.imgRes)
+            assertEquals("intermediate", result.difficulty)
+            assertEquals("no equipment", result.equipment)
+            assertEquals("chest", result.primaryMuscle)
+            assertEquals("triceps", result.secondaryMuscle)
         }
     }
 }

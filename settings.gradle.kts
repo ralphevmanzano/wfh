@@ -4,5 +4,6 @@ include(
   ":features:home",
   ":features:details",
   ":common",
-  ":core"
+  ":core",
+  ":test-utils"
 )

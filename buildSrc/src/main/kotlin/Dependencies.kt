@@ -13,6 +13,7 @@ object Modules {
   const val app = ":app"
   const val common = ":common"
   const val core = ":core"
+  const val testUtils = ":test-utils"
 }
 
 object Features {
@@ -56,7 +57,6 @@ object Libs {
   const val kotlinPlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 
   // Coroutines
-  const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
   const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
   const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 

@@ -34,6 +34,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets {
+        test.java.srcDirs += ["${project(':test-utils').projectDir}/src/test/java"]
+    }
 }
 
 dependencies {
@@ -41,6 +45,9 @@ dependencies {
     implementation Libs.androidxCore
     implementation Libs.androidxAppCompat
     implementation Libs.googleMaterial
+
+    implementation Libs.coroutinesCore
+    implementation Libs.coroutinesAndroid
 
     testImplementation Libs.junit
     testImplementation Libs.mockito

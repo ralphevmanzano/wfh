@@ -23,9 +23,8 @@ class DetailsViewModel @Inject constructor(
 
     fun getWorkout(id: Int) {
         viewModelScope.launch {
-            loadWorkoutByIdUseCase(id).let {
-                _workout.value = it
-            }
+            val workout = loadWorkoutByIdUseCase(id)
+            _workout.value = workout
         }
     }
 }
