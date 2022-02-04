@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import androidx.transition.TransitionInflater
 import com.ralphevmanzano.workoutsforhumans.common.extensions.setImageDrawableFromString
 import com.ralphevmanzano.workoutsforhumans.common.extensions.toCapitalize
 import com.ralphevmanzano.workoutsforhumans.core.base.BaseFragment

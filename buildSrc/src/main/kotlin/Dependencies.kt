@@ -39,8 +39,6 @@ object Versions {
   const val hiltAndroid = "2.40.5"
   const val hilt = "1.0.0-alpha03"
 
-  const val glide = "4.12.0"
-
   const val timber = "5.0.1"
 
   const val junit = "4.13.2"
@@ -86,10 +84,6 @@ object Libs {
   const val hiltPlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroid}"
   const val hiltLifecycleViewModel = "androidx.hilt:hilt-lifecycle-viewmodel:${Versions.hilt}"
   const val hiltCompiler = "androidx.hilt:hilt-compiler:${Versions.hilt}"
-
-  // Glide
-  const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
-  const val glideProcessor = "com.github.bumptech.glide:compiler:${Versions.glide}"
 
   // Timber
   const val timber = "com.jakewharton.timber:timber:${Versions.timber}"

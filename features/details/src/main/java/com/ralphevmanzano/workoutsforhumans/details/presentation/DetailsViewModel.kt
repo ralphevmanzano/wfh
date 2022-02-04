@@ -6,9 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ralphevmanzano.workoutsforhumans.core.domain.model.Workout
 import com.ralphevmanzano.workoutsforhumans.core.domain.usecase.LoadWorkoutByIdUseCase
-import com.ralphevmanzano.workoutsforhumans.core.utils.BEGINNER
-import com.ralphevmanzano.workoutsforhumans.core.utils.INTERMEDIATE
-import com.ralphevmanzano.workoutsforhumans.details.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

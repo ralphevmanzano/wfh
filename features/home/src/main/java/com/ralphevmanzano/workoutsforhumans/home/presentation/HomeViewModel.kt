@@ -7,9 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ralphevmanzano.workoutsforhumans.core.domain.model.Workout
 import com.ralphevmanzano.workoutsforhumans.core.domain.usecase.LoadWorkoutsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel

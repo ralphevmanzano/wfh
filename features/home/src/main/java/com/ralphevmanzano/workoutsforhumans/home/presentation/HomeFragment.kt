@@ -1,5 +1,6 @@
 package com.ralphevmanzano.workoutsforhumans.home.presentation
 
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.ralphevmanzano.workoutsforhumans.core.base.BaseFragment
 import com.ralphevmanzano.workoutsforhumans.home.databinding.FragmentHomeBinding
@@ -27,7 +28,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
   override fun observeData() {
     observeLiveData(viewModel.workouts) {
-      if (!it.isNullOrEmpty()) adapter.submitList(it)
+      if (!it.isNullOrEmpty()) {
+        binding.rvWorkouts.visibility = View.VISIBLE
+        adapter.submitList(it)
+      }
     }
   }
 }

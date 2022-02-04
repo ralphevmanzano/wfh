@@ -35,7 +35,9 @@
         android:layout_height="@dimen/zero_dp"
         android:layout_weight="1"
         android:clipToPadding="false"
+        android:layoutAnimation="@anim/layout_animation_from_bottom"
         android:paddingVertical="@dimen/home_rv_workouts_padding_vertical"
+        android:visibility="invisible"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:ignore="InefficientWeight" />
 
