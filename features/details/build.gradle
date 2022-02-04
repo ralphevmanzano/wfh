@@ -1,0 +1,27 @@
+apply from: "$rootProject.projectDir/android-library.gradle"
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+dependencies {
+  implementation project(Modules.core)
+  implementation project(Modules.common)
+
+  implementation Libs.fragments
+  implementation Libs.viewModels
+
+  implementation Libs.navigation
+  implementation Libs.navigationUi
+
+  implementation Libs.hiltAndroid
+  kapt Libs.hiltAndroidCompiler
+  implementation Libs.hiltLifecycleViewModel
+  kapt Libs.hiltCompiler
+
+  implementation Libs.timber
+
+  implementation Libs.androidxLegacySupport
+}
+
+kapt {
+  correctErrorTypes true
+}

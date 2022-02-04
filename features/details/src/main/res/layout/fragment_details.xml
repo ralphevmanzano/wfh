@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.DetailsFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/Theme.WorkoutForHumans.ToolbarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/zero_dp"
+        android:paddingHorizontal="@dimen/details_content_padding_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/ivWorkout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/img_push_up" />
+
+        <TextView
+            android:id="@+id/tvWorkout"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/archivonarrow"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/details_title_text_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivWorkout"
+            tools:text="Push up" />
+
+        <View
+            android:id="@+id/vDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/divider_height"
+            android:layout_marginTop="@dimen/divider_margin_top"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWorkout" />
+
+        <TextView
+            android:id="@+id/tvDifficultyLabel"
+            style="@style/Theme.WorkoutForHumans.Text.LabelTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deatils_label_margin_top"
+            android:text="@string/difficulty_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vDivider" />
+
+        <ProgressBar
+            android:id="@+id/pbDifficulty"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="@dimen/zero_dp"
+            android:layout_marginStart="@dimen/details_pb_margin_start"
+            android:background="@drawable/bg_pb_difficulty"
+            android:progressDrawable="@drawable/pd_difficulty"
+            app:layout_constraintBottom_toBottomOf="@id/tvDifficultyLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvDifficultyLabel"
+            app:layout_constraintTop_toTopOf="@id/tvDifficultyLabel" />
+
+        <TextView
+            android:id="@+id/tvDifficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/archivonarrow"
+            android:text="@string/beginner_label"
+            android:textColor="@color/color_primary"
+            app:layout_constraintStart_toStartOf="@id/pbDifficulty"
+            app:layout_constraintTop_toBottomOf="@id/pbDifficulty" />
+
+        <TextView
+            android:id="@+id/tvEquipmentLabel"
+            style="@style/Theme.WorkoutForHumans.Text.LabelTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deatils_label_margin_top"
+            android:text="@string/equipment_label"
+            app:layout_constraintStart_toStartOf="@id/tvDifficultyLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvDifficulty" />
+
+        <TextView
+            android:id="@+id/tvEquipment"
+            style="@style/Theme.WorkoutForHumans.Text.ValueTheme"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/details_value_margin_start"
+            app:layout_constraintEnd_toEndOf="@id/pbDifficulty"
+            app:layout_constraintStart_toEndOf="@id/tvEquipmentLabel"
+            app:layout_constraintTop_toTopOf="@id/tvEquipmentLabel"
+            tools:text="Dumbbells" />
+
+        <TextView
+            android:id="@+id/tvPrimaryMusclesLabel"
+            style="@style/Theme.WorkoutForHumans.Text.LabelTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deatils_label_margin_top"
+            android:text="@string/primary_label"
+            app:layout_constraintStart_toStartOf="@id/tvDifficultyLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvEquipmentLabel" />
+
+        <TextView
+            android:id="@+id/tvPrimaryMuscles"
+            style="@style/Theme.WorkoutForHumans.Text.ValueTheme"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/details_value_margin_start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvPrimaryMusclesLabel"
+            app:layout_constraintTop_toTopOf="@id/tvPrimaryMusclesLabel"
+            tools:text="Chest" />
+
+        <TextView
+            android:id="@+id/tvSecondaryMusclesLabel"
+            style="@style/Theme.WorkoutForHumans.Text.LabelTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deatils_label_margin_top"
+            android:text="@string/secondary_label"
+            app:layout_constraintStart_toStartOf="@id/tvDifficultyLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvPrimaryMusclesLabel" />
+
+        <TextView
+            android:id="@+id/tvSecondaryMuscles"
+            style="@style/Theme.WorkoutForHumans.Text.ValueTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/details_value_margin_start"
+            app:layout_constraintEnd_toEndOf="@id/pbDifficulty"
+            app:layout_constraintStart_toEndOf="@id/tvSecondaryMusclesLabel"
+            app:layout_constraintTop_toTopOf="@id/tvSecondaryMusclesLabel"
+            tools:text="Triceps" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

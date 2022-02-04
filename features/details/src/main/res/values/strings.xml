@@ -1,0 +1,7 @@
+<resources>
+    <string name="difficulty_label">Difficulty:</string>
+    <string name="beginner_label">Beginner</string>
+    <string name="equipment_label">Equipment:</string>
+    <string name="primary_label">Primary:</string>
+    <string name="secondary_label">Secondary:</string>
+</resources>
